@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>英雄联盟首页制作</title>
+     <link href="style/base.css" rel="stylesheet" type="text/css">
+    <link href="style/common.css" rel="stylesheet" type="text/css">
+    <link href="style/index.css" rel="stylesheet" type="text/css">
+    <script src="js/index.js"></script>
+    <script src="js/heroskin.js"></script>
+</head>
+<body>
+<!--包裹层-->
+<div id="wrap">
+</div>
+<div id="login-box" class="clearfix">
+    <div id="all-close">登录信息<span id="all-close2">×</span></div>
+    <div class="logincp" id="logincp">
+        <h4>账号密码登录</h4>
+        <h5>推荐使用<a href="#">快速安全登录</a>，防止盗号。</h5>
+
+        <div class="login-name">
+        <input type="text" id="txt">
+            <label for="txt" id="message">支持QQ号/邮箱/手机号登录</label>
+        </div>
+        <div class="login-password">
+        <input type="password" id="password">
+            <label for="password" id="pass-code">密码</label>
+        </div>
+        <button>登录</button>
+            </div>
+    <div class="login-bottom-info">
+        <a href="#">忘记密码?</a>
+        <a href="#">|    注册新账号    |</a>
+        <a href="#">意见反馈</a>
+    </div>
+    </div>
+</div>
+<script>
+    var box=document.getElementById("login-box");
+    var drop=document.getElementById("all-close");
+    startDrop(drop,box);
+    function startDrop(current,move){
+        current.onmousedown=function(event){
+            var event=event||window.event;
+            var x=event.clientX-move.offsetLeft -300;
+            var y=event.clientY-move.offsetTop -200;
+            document.onmousemove=function(event){
+                var event=event||window.event;
+                move.style.left=event.clientX-x+"px";
+                move.style.top=event.clientY-y+"px"
+            }
+        }
+
+        document.onmouseup=function(){   //鼠标弹起以后鼠标继续移动就不应该操作
+            document.onmousemove=null;
+        }
+    }
+</script>
+<!--页面头部-->
+<div class="header">
+    <!--导航栏-->
+<div class="header-nav" >
+    <ul id="topnav">
+        <li><a href="#">官网首页<span>HOME</span></a></li>
+        <li><a href="#">游戏资料<span>GAME INFO</span></a></li>
+        <li><a href="#">商城/合作<span>STORE</span></a></li>
+        <li><a href="#">用户互动<span>COMMUNITY</span></a></li>
+        <li><a href="#">赛事中心<span>EVENTS</span></a></li>
+        <li><a href="#">自助系统<span>SYSTEM</span></a></li>
+        <li><a href="#">个人中心<span>USER CENTER</span></a></li>
+    </ul>
+</div>
+    <!--下拉子导航-->
+    <div class="sub-nav" style="visibility: hidden" id="subnav">
+        <ul >
+            <li>
+                &nbsp;
+            </li>
+            <li>
+                <a href="#">新手指引</a>
+                <a href="#">资料库</a>
+                <a href="#">攻略中心</a>
+                <a href="#">模式实验室</a>
+                <a href="#">海克斯战利品库</a>
+                <a href="#">屏保下载</a>
+            </li>
+            <li>
+                <a href="#">点券充值</a>
+                <a href="#">道聚城</a>
+                <a href="#">英雄联盟画册</a>
+                <a href="#">英雄联盟桌游</a>
+                <a href="#">LOL信用卡</a>
+                <a href="#">网吧特权</a>
+            </li>
+            <li>
+                <a href="">在线客服</a>
+                <a href="">活动中心</a>
+                <a href="">官方网站</a>
+                <a href="">官网微信</a>
+                <a href="">官方微博</a>
+            </li>
+            <li>
+                <a href="">LPL职业联赛</a>
+                <a href="">甲级职业联赛</a>
+                <a href="">德玛东亚杯</a>
+                <a href="">城市英雄争霸赛</a>
+                <a href="">搞笑联赛</a>
+                <a href="">小鸡经营赛</a>
+            </li>
+            <li>
+                <a href="#">封号查询</a>
+                <a href="#">体验服申请</a>
+                    <a href="#">服务器状况查询</a>
+                    <a href="#">裁决之恋</a>
+            </li>
+            <li>
+                <a href="#">殷晨东</a>
+                <a href="#">祖安</a>
+                <a href="#">黄铜5</a>
+            </li>
+        </ul>
+    </div>
+    <!--头部中间-->
+<div class="header-mid">
+    <!--左上角LOGO部分-->
+    <div class="header-nav-logo"><img src="images/banner_logo.png" alt=""> </div>
+    <!--头部视频-->
+    <video  class="top-big-video" autoplay loop><source src="images/big-v13.mp4"></video>
+    <!--头部活动-->
+    <div class="top-act">
+    <div class="left-info">
+        <h3>大冰雪节</h3>
+        <p>活动时间：2016年12月15日-2017年1月10日</p>
+        <div class="left-info-video">
+            <video autoplay loop id="topSmallVideo"><source src="images/small-v13.mp4"></video>
+            <a id="sm-play" class="btn-sm-play" href="javascript:;"><img src="images/bg-play.png" alt=""></a>
+        </div>
+        <div class="read-more-info"><a href="#">查看详情</a></div>
+    </div>
+        <div class="Edition-info">
+            <p>当前游戏版本：<span>Ver 6.24.1</span><a href="#">版本详情</a></p>
+        </div>
+</div>
+    <!--头部底部导航加登录-->
+    <div class="header-bottom comWidth">
+ <div class="downloadlol"><a href="#"><img src="images/index_03.png" alt="" height="114" width="221"> </a></div>
+        <a href="">
+        <div class="box" style="background-color: #2d3551">
+          <img src="images/index_06.png" alt="">
+              <p class="toptie">新手礼包</p>
+            <p>新手任务好礼</p>
+        </div>
+        </a>
+        <a href="">
+        <div class="box" style="background-color: #2d3551">
+            <img src="images/index_08.png" alt="">
+            <p class="toptie">视频中心</p>
+            <p>最新最全的视频</p>
+        </div>
+        </a>
+        <a href="">
+        <div class="box" style="background-color: #2e3752">
+            <img src="images/index_10.png" alt="">
+            <p class="toptie">赛事中心</p>
+            <p>权威赛事数据</p>
+        </div>
+        </a>
+        <a href="">
+        <div class="box" style="background-color: #2d3651">
+            <img src="images/index_12.png" alt="">
+            <p class="toptie">游戏资料</p>
+            <p>海量英雄资料</p>
+        </div>
+        </a>
+        <a href="">
+        <div class="box" style="background-color: #2c354f">
+            <img src="images/index_14.png" alt="">
+            <p class="toptie">新版客户端</p>
+            <p>加快游戏速度</p>
+        </div>
+        </a>
+        <div class="Acc-log">
+            <div class="inside clearfix">
+                <div class="left-pic fl"><img src="images/index_17.png" alt=""></div>
+                <div class="right-info fl">
+                    <h4>亲爱的召唤师，欢迎<a href="javascript:userLogin()" > 登录</a></h4>
+                    <p class="p2">登录后查看自己的英雄联盟游戏信息，包括</p>
+                    <p>召唤师等级、段位信息、游戏胜场数、账户信息、声望值 等。</p>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+</div>
+</div>
+<!--页面主体部分-->
+<div class="main-body comWidth clearfix">
+    <!--页面主体左侧-->
+<div class="main-body-left fl ">
+    <!--最新的活动轮播-->
+   <div class="activity">
+       <div class="activity-pic">
+           <ul id="ac-pic">
+               <li><a href=""><img src="images/ac002.jpg" alt=""/></a></li>
+               <li><a href=""><img src="images/ac003%20.jpg" alt=""/></a></li>
+               <li><a href=""><img src="images/ac003.jpg" alt=""/></a></li>
+               <li><a href=""><img src="images/ac004.jpg" alt=""/></a></li>
+               <li><a href=""><img src="images/ac006.jpg" alt=""/></a></li>
+               <li><a href=""><img src="" alt=""/></a></li>
+           </ul>
+
+       </div>
+       <div class="activity-link">
+       <ul class="clearfix" id="newlis">
+           <li><a href="#" class="current"> 魔法少女星光水晶</a></li>
+           <li><a href="#"> 大冰雪节活动</a></li>
+           <li><a href="#"> 传奇正盛冠军梦</a></li>
+           <li><a href="#"> 大元素师同人汇</a></li>
+           <li><a href="#"> 五折优惠</a>    </ul>
+           </div>
+   </div>
+<!--VIDEO视频部分-->
+    <div class="video-core">
+   <div class="video-core-top clearfix">
+       <div class="video-core-top-l fl">视频中心</div>
+       <div class="video-core-top-r fr">
+           <a  href="#" class="Submission" >我要投稿</a>
+           <a href="#" class="EnterVideoCenter">进入视频中心</a>
+       </div>
+
+   </div>
+        <div class="video-core-body clearfix" id="video-core-body" >
+            <div class="video-line" id="video-line">
+                <ul class="clearfix">
+                    <li>最新视频</li>
+                    <li>解说视频</li>
+                    <li>周免英雄</li>
+                    <li>赛事视频</li>
+                    <li>趣味集锦</li>
+                    <li>官方视频</li>
+                </ul>
+            </div>
+            <!--最新视频-->
+            <div class="videobox clearfix">
+              <a>
+                  <img src="images/videojpg_03.png" alt="">
+                  <p>肉装螳螂也能收割爆炸输出
+                      站撸全场</p>
+              </a>
+              <a>
+                  <img src="images/videojpg_05.png" alt="">
+                  <p>大嘴鬼畜般的攻击速度！化
+                      身电竞加特林1秒15喷</p>
+              </a>
+              <a>
+                  <img src="images/videojpg_07.png" alt="">
+                  <p>草根王者：薇恩vs末日！结
+                      局竟然是这样</p>
+              </a>
+
+              <a>
+                  <img src="images/videojpg_09.png" alt="">
+                  <p>Miss排位日记321期上单AD
+                      小鱼人！暴走巨鲨吃掉一切</p>
+              </a>
+              <a>
+                  <img src="images/videojpg_15.jpg" alt="">
+                  <p>潘森跳龙坑！是五杀还是被
+                      五人围攻？</p>
+              </a>
+              <a>
+                  <img src="images/videojpg_17.png" alt="">
+                  <p>超级路人：胸大不无脑！上分
+                      神器六指琴魔！</p>
+              </a>
+              <a>
+                  <img src="images/videojpg_18.png" alt="">
+                  <p>团战这点事儿5：司马老贼的
+                      生死时速</p>
+              </a>
+              <a>
+                  <img src="images/videojpg_17.png" alt="">
+                  <p>怎么练就一个不死之身，塞恩
+                      爸爸告诉你</p>
+              </a>
+                <!--再显示出来的-->
+                <a>
+                    <img src="images/video2_03.jpg" alt="">
+                    <p>蛋蛋奇葩系列：700AP卢西安，狂暴20杀！</p>
+                </a>
+                <a>
+                    <img src="images/video2_05.jpg" alt="">
+                    <p>Imp火影劫大招躲技能，黑影追踪秀杀盲僧</p>
+                </a>
+                <a>
+                    <img src="images/video2_07.jpg" alt="">
+                    <p>合击之术12：美服胜率榜首，下路炸弹人新套路拆迁队来袭！</p>
+                </a>
+
+                <a>
+                    <img src="images/video2_09.jpg" alt="">
+                    <p>《兵法联盟》第二期：如何领先对方经济</p>
+                </a>
+                <a>
+                    <img src="images/video2_15.jpg" alt="">
+                    <p>潘森跳龙坑！是五杀还是被
+                        五人围攻？</p>
+                </a>
+                <a>
+                    <img src="images/video2_16.jpg" alt="">
+                    <p>超级路人：胸大不无脑！上分
+                        神器六指琴魔！</p>
+                </a>
+                <a>
+                    <img src="images/video2_17.jpg" alt="">
+                    <p>团战这点事儿5：司马老贼的
+                        生死时速</p>
+                </a>
+                <a>
+                    <img src="images/video2_19.jpg" alt="">
+                    <p>怎么练就一个不死之身，塞恩
+                        爸爸告诉你</p>
+                </a>
+          </div>
+            <!--END-->
+            <!--解说视频-->
+            <div class="videobox clearfix" style="display: none">
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <!--再显示出来的-->
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_25.jpg" alt="">
+                    <p>解说视频啊</p>
+                </a>
+            </div>
+            <!--END-->
+              <!--周免英雄-->
+            <div class="videobox clearfix" style="display: none">
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <!--再显示出来的-->
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_28.jpg" alt="">
+                    <p>周免英雄啊</p>
+                </a>
+            </div>
+            <!--END-->
+            <!--赛事视频-->
+            <div class="videobox clearfix" style="display: none">
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <!--再显示出来的-->
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频++</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+                <a>
+                    <img src="images/video2_30.jpg" alt="">
+                    <p>赛事视频啊</p>
+                </a>
+            </div>
+            <!--END-->
+            <!--趣味集锦-->
+            <div class="videobox clearfix" style="display: none">
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <!--再显示出来的-->
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦++</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+                <a>
+                    <img src="images/video03_03.jpg" alt="">
+                    <p>趣味集锦</p>
+                </a>
+            </div>
+            <!--END -->
+            <!--官方视频-->
+            <div class="videobox clearfix" style="display: none">
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <!--再显示出来的-->
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频++</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+                <a>
+                    <img src="images/video03_05.png" alt="">
+                    <p>官方视频</p>
+                </a>
+            </div>
+            <!--END-->
+
+
+
+        </div>
+        <div class="video-bottom" id="video-bottom">再显示<span>8</span>个视频</div>
+    </div>
+
+  <!--赛事中心部分-->
+    <div class="Event-center">
+     <div class="top-line clearfix">
+         <h3 class="fl">赛事中心</h3>
+         <a href="#" class="into-ss">进入赛事中心</a>
+     </div>
+    <div class="ss-line" >
+        <ul id="ss-select">
+            <li class="current">职业联赛</li>
+            <li>甲级职业联赛</li>
+            <li>德玛西亚杯</li>
+            <li>高校联赛</li>
+            <li>城市英雄争霸赛</li>
+            <li>王者峡谷</li>
+        </ul>
+    </div>
+    <div class="match-content" id="match-body">
+        <!--职业联赛-->
+        <div class="box clearfix" style="display: block">
+           <div class="match-left-info">
+               <img src="images/ss-pic1.jpg" alt="">
+               <a href="#">进入赛事界面</a>
+           </div>
+            <div class="right-info">
+                <div class="right-info-top clearfix">
+                    <div class="right-info-top-left fl">
+                    <h4>2016英雄联盟职业联赛夏季赛</h4>
+                    <p>时间:2016-09-24-2017-06-30</p>
+                    <p>地点：线下</p>
+                     </div>
+                    <div class="right-info-top-right fr">
+                        <h4>4200</h4>
+                        <p>万人关注</p>
+                        </div>
+                </div>
+                <div class="right-info-bottom">
+                    <ul>
+                        <li><a href="">2017LPL春季赛宣传片《征程篇》</a><span>01/14</span></li>
+                        <li><a href="">年轻无所畏惧 QG重返LPL</a><span>01/14</span></li>
+                        <li><a href="">2017赛季 英雄联盟职业联赛正式规则</a><span>01/14</span></li>
+                        <li><a href="">韦神归来！LGD新赛季盼腾飞</a><span>01/14</span></li>
+                        <li><a href="">2017赛季职业战队召唤师图标开售！</a><span>01/14</span></li>
+                        <li><a href="">危险与机遇并存 GT渴望突出重围</a><span>01/14</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--甲级职业联赛-->
+        <div class="box clearfix" style="display: none">
+            <div class="match-left-info">
+                <img src="images/ss-pic2.jpg" alt="">
+                <a href="#">进入赛事界面</a>
+            </div>
+            <div class="right-info">
+                <div class="right-info-top clearfix">
+                    <div class="right-info-top-left fl">
+                        <h4>英雄联盟甲级职业联赛夏季赛</h4>
+                        <p>时间:2016-09-24-2017-06-30</p>
+                        <p>地点：杭州西湖</p>
+                    </div>
+                    <div class="right-info-top-right fr">
+                        <h4>800</h4>
+                        <p>万人关注</p>
+                    </div>
+                </div>
+                <div class="right-info-bottom">
+                    <ul>
+                        <li><a href="">硝烟再起 LSPL春季赛1月17日即将开赛</a><span>01/14</span></li>
+                        <li><a href="">LSPL战队巡礼（三）：黑马奔腾还是保级之路</a><span>01/14</span></li>
+                        <li><a href="">LSPL战队巡礼(二)：联赛劲旅力争上游</a><span>01/14</span></li>
+                        <li><a href="">LSPL战队巡礼(一)：目标，LPL！</a><span>01/14</span></li>
+                        <li><a href="">盘点LSPL新赛季上最受期待的新人们</a><span>01/14</span></li>
+                        <li><a href="">LPL强援加盟 新赛季LSPL竞争更显精彩激烈</a><span>01/14</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--德玛西亚杯-->
+        <div class="box clearfix" style="display: none">
+            <div class="match-left-info">
+                <img src="images/ss-pic3.jpg" alt="">
+                <a href="#">进入赛事界面</a>
+            </div>
+            <div class="right-info">
+                <div class="right-info-top clearfix">
+                    <div class="right-info-top-left fl">
+                        <h4>2016德玛西亚杯</h4>
+                        <p>时间:2016-09-24-2017-06-30</p>
+                        <p>地点：杭州市西湖区文三西路</p>
+                    </div>
+                    <div class="right-info-top-right fr">
+                        <h4>700</h4>
+                        <p>万人关注</p>
+                    </div>
+                </div>
+                <div class="right-info-bottom">
+                    <ul>
+                        <li><a href="">2016颁奖盛典落幕 EDG摘下德杯五连冠</a><span>01/14</span></li>
+                        <li><a href="">2016年度颁奖盛典奖项揭晓</a><span>01/14</span></li>
+                        <li><a href="">Remember荣获年度最佳新人解说</a><span>01/14</span></li>
+                        <li><a href="">2016年度颁奖盛典年度最佳阵容公布</a><span>01/14</span></li>
+                        <li><a href="">2016年度颁奖盛典进步最快俱乐部：IM</a><span>01/14</span></li>
+                        <li><a href="">2016年度颁奖盛典最佳外援：Athena</a><span>01/14</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--高校联赛-->
+        <div class="box clearfix" style="display: none">
+            <div class="match-left-info">
+                <img src="images/ss-pic4.jpg" alt="">
+                <a href="#">进入赛事界面</a>
+            </div>
+            <div class="right-info">
+                <div class="right-info-top clearfix">
+                    <div class="right-info-top-left fl">
+                        <h4>第五届全国搞笑联赛</h4>
+                        <p>时间:2016-09-24-2017-06-30</p>
+                        <p>地点：我怎么知道？</p>
+                    </div>
+                    <div class="right-info-top-right fr">
+                        <h4>300</h4>
+                        <p>万人关注</p>
+                    </div>
+                </div>
+                <div class="right-info-bottom">
+                    <ul>
+                        <li><a href="">英雄联盟用户调查问卷</a><span>01/14</span></li>
+                        <li><a href="">国际高校冠军赛的微访谈问答回顾</a><span>01/14</span></li>
+                        <li><a href="">第五届全国高校联赛公开海选赛，火热来袭！</a><span>01/14</span></li>
+                        <li><a href="">2016国际高校冠军赛分组及赛程结果公布</a><span>01/14</span></li>
+                        <li><a href="">2017赛季职业战队召唤师图标开售！</a><span>01/14</span></li>
+                        <li><a href="">危险与机遇并存 GT渴望突出重围</a><span>01/14</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--城市英雄争霸赛-->
+        <div class="box clearfix" style="display: none">
+            <div class="match-left-info">
+                <img src="images/ss-pic5.jpg" alt="">
+                <a href="#">进入赛事界面</a>
+            </div>
+            <div class="right-info">
+                <div class="right-info-top clearfix">
+                    <div class="right-info-top-left fl">
+                        <h4>第十一届城市英雄争霸赛</h4>
+                        <p>时间:2016-09-24-2017-06-30</p>
+                        <p>地点：线下</p>
+                    </div>
+                    <div class="right-info-top-right fr">
+                        <h4>500</h4>
+                        <p>万人关注</p>
+                    </div>
+                </div>
+                <div class="right-info-bottom">
+                    <ul>
+                        <li><a href="">2017LPL春季赛宣传片《征程篇》</a><span>01/14</span></li>
+                        <li><a href="">年轻无所畏惧 QG重返LPL</a><span>01/14</span></li>
+                        <li><a href="">2017赛季 英雄联盟职业联赛正式规则</a><span>01/14</span></li>
+                        <li><a href="">韦神归来！LGD新赛季盼腾飞</a><span>01/14</span></li>
+                        <li><a href="">2017赛季职业战队召唤师图标开售！</a><span>01/14</span></li>
+                        <li><a href="">危险与机遇并存 GT渴望突出重围</a><span>01/14</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--亡者峡谷-->
+        <div class="box clearfix" style="display: none">
+            <div class="match-left-info">
+                <img src="images/ss-pic6.jpg" alt="">
+                <a href="#">进入赛事界面</a>
+            </div>
+            <div class="right-info">
+                <div class="right-info-top clearfix">
+                    <div class="right-info-top-left fl">
+                        <h4>王者峡谷</h4>
+                        <p>时间:2016-09-24-2017-06-30</p>
+                        <p>地点：线下</p>
+                    </div>
+                    <div class="right-info-top-right fr">
+                        <h4>100</h4>
+                        <p>万人关注</p>
+                    </div>
+                </div>
+                <div class="right-info-bottom">
+                    <ul>
+                        <li><a href="">2017LPL春季赛宣传片《征程篇》</a><span>01/14</span></li>
+                        <li><a href="">年轻无所畏惧 QG重返LPL</a><span>01/14</span></li>
+                        <li><a href="">2017赛季 英雄联盟职业联赛正式规则</a><span>01/14</span></li>
+                        <li><a href="">韦神归来！LGD新赛季盼腾飞</a><span>01/14</span></li>
+                        <li><a href="">2017赛季职业战队召唤师图标开售！</a><span>01/14</span></li>
+                        <li><a href="">危险与机遇并存 GT渴望突出重围</a><span>01/14</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="js/match.js"></script>
+    </div>
+   <!--客服专区-->
+    <div class="cus-ser clearfix">
+        <div class="top-line clearfix">
+            <h3 class="fl">客服专区</h3>
+            <a href="#" class="into-ss">QQ在线客服</a>
+        </div>
+       <div class="zzff clearfix" >
+           <ul>
+               <li class="current kf" id="zzfw1">自助服务</li>
+               <li class="kf" id="cjwtlb">常见问题列表</li>
+               <li class="more">登录相关</li>
+               <li >游戏相关</li>
+               <li >电脑及以其他问题</li>
+           </ul>
+       </div>
+
+       <div class="boxanswer" id="boxanswer">
+           <div class="zzfw clearfix" style="display: block">
+               <ul>
+                   <li><a href="">英雄联盟（LOL）晋级助手</a></li>
+                   <li><a href="">英雄联盟（LOL）封号申诉相关问题</a></li>
+                   <li><a href="">英雄联盟（LOL）如何查看皮肤特效</a></li>
+                   <li><a href="">新版本匹配机制FAQ</a></li>
+                   <li><a href="">英雄联盟（LOL）限定皮肤获得方法</a></li>
+                   <li><a href="">英雄联盟（LOL）常见规则</a></li>
+                   <li><a href="">英雄联盟（LOL）点券充错大区了怎么办？</a></li>
+                   <li><a href="">英雄联盟（LOL）游戏商城黑屏</a></li>
+                   <li><a href="">英雄联盟（LOL）聊天框弹出中奖信息/举报虚假</a></li>
+                   <li><a href="">英雄联盟（LOL）对电脑配置有什么要求？</a></li>
+               </ul>
+           </div>
+           <div class="zzfw" style="display: none;">
+               <ul>
+                   <li><a href="">英雄联盟冲值充错大区了怎么办？【该自助工具</a></li>
+                   <li><a href="">英雄联盟（LOL）排位赛/晋级赛（胜点、段位、</a></li>
+                   <li><a href="">英雄联盟（LOL）登录提示“登录错误，登录服</a></li>
+                   <li><a href="">英雄联盟（LOL）登录成功后提示：服务器连接</a></li>
+                   <li><a href="">英雄联盟（LOL）PVP.NET断开连接的处理方法</a></li>
+                   <li><a href="">英雄联盟（LOL）登录成功后提示：未知错误，</a></li>
+                   <li><a href="">英雄联盟（LOL）登录时发生ActionScript错误</a></li>
+                   <li><a href="">英雄联盟（LOL）Adobe Air 错误提示</a></li>
+                   <li><a href="">英雄联盟（LOL）聊天框弹出中奖信息/举报虚假</a></li>
+                   <li><a href="">英雄联盟（LOL）对电脑配置有什么要求？</a></li>
+               </ul>
+               </div>
+       </div>
+        <script>
+
+        </script>
+    </div>
+
+</div>
+
+    <!--页面主题右侧-->
+    <div class="main-body-right fr" >
+        <div class="right-news">
+            <div class="news" id=news>
+                <ul>
+                    <li class="current">综合</li>
+                    <li>公告</li>
+                    <li>赛事</li>
+                    <li>论坛</li>
+                    <a class="more" href="#">...</a>
+                </ul>
+            </div>
+
+            <div class="news-content" id="newscontent">
+                <div class="compre" style="display: block" >
+                    <ul>
+                        <li class="first">8月18日凌晨5点 版本停机更新公告</li>
+                        <li class="normal"><span>新闻</span><a href="#">英雄联盟首款定制月饼，暖心来袭!</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>新闻</span><a href="#">部分大区开启常用设置服务器保存功能!</a><i class="date">08/10</i></li>
+                        <li class="normal"><span>新闻</span><a href="#">五周年明星阵容曝光第二弹 颜值天团引爆赛场</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>新闻</span><a href="#">Baeme龙王奇招救主 IM击败WE夺季军</a><i class="date">07/15</i></li>
+                        <li class="normal"><span>新闻</span><a href="#">8月10日-15日LPL微信互动获奖名单</a><i class="date">07/18</i></li>
+                        <li class="normal"><span>新闻</span><a href="#">如何晋级2016全球总决赛</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>新闻</span><a href="#">限定瓶身激爽上线 雪碧带你爽翻夏日</a><i class="date">07/11</i></li>
+                    </ul>
+
+                </div>
+                <div class="compre" style="display: none">
+                    <ul>
+                        <li class="first">1月4日7点全区排位赛系统维护公告</li>
+                        <li class="normal"><span>公告</span><a href="#">1月4日7点全区排位赛系统维护公告</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>公告</span><a href="#">2016赛季最强王者领奖登记</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>公告</span><a href="#">部分电信大区排位模式异常公告</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>公告</span><a href="#">钢铁烈阳大区商城临时维护公告</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>公告</span><a href="#">网通大区12月30日凌晨外网波动公告</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>公告</span><a href="#">12月30日轮换模式：魄罗大乱斗</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>公告</span><a href="#">12月30日免费英雄更换公告</a><i class="date">08/15</i></li>
+                    </ul>
+                </div>
+                <div class="compre" style="display: none">
+                    <ul>
+                        <li class="first">LPL春季赛赛程公布 揭幕战RNGvsIM</li>
+                        <li class="normal"><span>赛事</span><a href="#">2016英雄联盟职业联赛纪律奖金公告</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>赛事</span><a href="#">Uzi历任辅助盘点 Ming能否成为最佳辅助</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>赛事</span><a href="#">2017LPL比赛场馆公布：上海浦东正大广场</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>赛事</span><a href="#">2016精彩回顾</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>赛事</span><a href="#">姿态+Ohq Snake新双核春季赛亮相</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>赛事</span><a href="#">Meiko+Zet EDG全新下路组合上线</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>赛事</span><a href="#">英雄的平凡心：无畏逆境的Uzi</a><i class="date">08/15</i></li>
+                    </ul>
+                </div>
+                <div class="compre" style="display: none">
+                    <ul>
+                        <li class="first">问拳头第七期：新年愿望</li>
+                        <li class="normal"><span>论坛</span><a href="#">1月4日8点全区聊天系统维护公告</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>论坛</span><a href="#">1月4日7点全区排位赛系统维护公告</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>论坛</span><a href="#">Gogoing新女友疑似曝光？小苍惨遭抛弃？</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>论坛</span><a href="#">【囧图】某高校竟推出英雄联盟主题套餐？</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>论坛</span><a href="#">【防坑大指南】12月30日周免攻略</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>论坛</span><a href="#">奇葩坑货大市场，技能留着过年？</a><i class="date">08/15</i></li>
+                        <li class="normal"><span>论坛</span><a href="#">6年各大英雄改动次数：12次改动豹女首当其</a><i class="date">08/15</i></li>
+                    </ul>
+                </div>
+                <p class="opinon"><a href="#">【调研】留下你的意见，我们会做的更好</a> </p>
+            </div>
+        </div>
+        <!--右侧新闻部分结束-->
+        <!--右侧英雄皮肤部分开始-->
+        <div class="hero-skin">
+             <div class="hero-skin-line">
+                <div class="logo fl"></div>
+                 <h3 class="title fl">英雄/皮肤</h3>
+                 <a class="fr" href="#">我的英雄与皮肤</a>
+                 <a class="fr" href="#">全部英雄</a>
+             </div>
+             <div class="hero-skin-body" id="skinjs">
+                 <ul class="clearfix" >
+                     <li class="current">周免英雄</li>
+                     <li>最新英雄</li>
+                     <li>最新皮肤</li>
+                 </ul>
+                <div class="content-box" id="box-js">
+                    <div style="display: block" class="weekfree">
+                        <img src="images/weekfree01.jpg" alt="asd">
+                        <img src="images/weekfree02.jpg">
+                        <img src="images/weekfree03.jpg">
+                        <img src="images/weekfree04.jpg">
+                        <img src="images/weekfree05.jpg">
+                        <img src="images/weekfree06.jpg">
+                        <img src="images/weekfree07.jpg">
+                        <img src="images/weekfree08.jpg">
+                        <img src="images/weekfree09.jpg">
+                        <img src="images/weekfree10.jpg">
+                        <p style="padding-left: 185px">免费时间：2017-01-20 至 2017-01-27</p>
+                    </div>
+                    <div style="display: none">
+                        <img src="images/newhero01.jpg" alt=""/>
+                        <img src="images/newhero02.jpg" alt=""/>
+                        <img src="images/newhero03.jpg" alt=""/>
+                        <img src="images/newhero04.jpg" alt=""/>
+                        <img src="images/newhero05.jpg" alt=""/>
+                    </div>
+                    <div style="display: none">
+                        <img src="images/newpifu01.jpg" alt=""/>
+                        <img src="images/newpifu02.jpg" alt=""/>
+                        <img src="images/newpifu03.jpg" alt=""/>
+                        <img src="images/newpifu04.jpg" alt=""/>
+                        <img src="images/newpifu05.jpg" alt=""/>
+                    </div>
+                </div>
+             </div>
+            <script>
+                var skinjs=document.getElementById("skinjs");
+                var lis2=skinjs.getElementsByTagName("li");
+                var boxjs=document.getElementById("box-js");
+                var boxes=boxjs.getElementsByTagName("div");
+                for(var i=0;i<lis2.length;i++)
+                {
+                    lis2[i].index=i;
+                    lis2[i].onmouseover=function(){
+
+                        for(var j=0;j<lis2.length;j++)
+                        {
+                            lis2[j].className="";
+                            boxes[j].style.display="none";
+                        }
+                        this.className="current";
+                        boxes[this.index].style.display="block";
+                    }
+                }
+
+            </script>
+            </div>
+           <!--右侧英雄皮肤部分结束-->
+           <!--右侧快速入口开始-->
+        <div class="quick-enter">
+            <div class="quick-enter-line clearfix">
+                <div class="logo fl"></div>
+                <h3 class="title fl">快速入口</h3>
+            </div>
+
+            <div class="quick-enter-box" id="boxi">
+
+              <a href="#">
+                  <i class="tubiao"></i>
+                  点亮图标
+              </a>
+                <a href="#">
+                    <i class="tubiao"></i>
+                    声望系统
+                </a>
+                <a href="#">
+                    <i class="tubiao"></i>
+                    CDK兑换
+                </a>
+                <a href="#">
+                    <i class="tubiao"></i>
+                    官方微博
+                </a>
+                <a href="#">
+                    <i class="tubiao"></i>
+                    领奖中心
+                </a>
+                <a href="#">
+                    <i class="tubiao"></i>
+                    玩家论坛
+                </a>
+                <a href="#">
+                    <i class="tubiao"></i>
+                    在线客服
+                </a>
+            </div>
+        </div>
+        <script>
+            var box1=document.getElementById("boxi");
+            var is=box1.getElementsByTagName("i");
+            var as=box1.getElementsByTagName("a");
+           for(var i=0;i<is.length;i++)
+           {
+             is[i].style.backgroundPositionX=(-280-i*40)+"px"
+              is[i].style.backgroundPositionY="-40px";
+
+               as[i].onmouseover=function(){
+                 for(var s=0;s<as.length;s++)
+                 {
+                     as[s].index=s;
+                     as[s].style.color="#555555";
+                     is[s].style.backgroundPositionY="-40px";
+                 }
+                   this.style.color="#00ab88";
+                   is[this.index].style.backgroundPositionY="-80px";
+              }
+
+               as[i].onmouseout=function(){
+                   for(var s=0;s<as.length;s++)
+                   {
+                       as[s].index=s;
+                       as[s].style.color="#555555";
+                       is[s].style.backgroundPositionY="-40px"
+                   }
+
+               }
+
+
+           }
+        </script>
+        <!--右侧快速入口结束-->
+        <!--右侧活动中心开始-->
+        <div class="activity-center">
+            <div class="activity-center-line">
+                <div class="logo fl"></div>
+                <h3 class="title fl">活动中心</h3>
+                <a class="fr" href="#">进入活动中心</a>
+            </div>
+            <div class="activity-center-body clearfix">
+                <div class="activity-center-body-left fl"></div>
+                <div class="activity-center-body-right fr" >
+                    <ul>
+                        <li><a href="">老兵不死，只是凋零。统<span class="activety-end">已结束</span></a></li>
+                        <li><a href="">英雄联盟全新混音编辑--<span class="activety-end">已结束</span></a></li>
+                        <li><a href="">五杀乐队头像领取<span class="activity-active">进行中</span></a></li>
+                        <li><a href="">全国高校排行榜<span class="activity-active">进行中</span></a></li>
+                        <li><a href="">任务：源计划<span class="activity-active">进行中</span></a></li>
+                        <li><a href="">枢纽攻防大作战<span class="activity-active">进行中</span></a></li>
+                        <li><a href="">2016泳池派对：勇夺<span class="activity-active">进行中</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--右侧活动中心结束-->
+        <!--右侧广告-->
+        <div class="Advertisement" style="margin-top: 80px">
+            <div class="lol-Adver">
+                <img src="images/pic-qt.jpg" alt=""/>
+                <img src="images/right1.jpg" alt=""/>
+                </div>
+            <div class="other-Adver" style="margin-top: 20px">
+                <img src="images/right3.png" alt=""/>
+            </div>
+        </div>
+    </div>
+    </div>
+<div class="footer">
+    <div class="footer-mainbody comWidth clearfix">
+        <div class="QR-code fl">
+            <div class="erweima fl"><img src="images/erweima.png" alt="" width="66px" height="66px"></div>
+            <div class="title fl">
+                <h6>英雄，我们在这里等你</h6>
+                <p>扫描下载《英雄联盟》官方APP，
+                    获取最新最全的官方动态</p>
+            </div>
+        </div>
+        <div class="wxts fl">
+            <h6>温馨提示：本游戏适合18岁（含）以上玩家娱乐</h6>
+            <p>抵制不良游戏  拒绝盗版游戏  注意自我保护  谨防受骗上当  适度游戏益脑
+                沉迷游戏伤身  合理安排时间  享受健康生活</p>
+        </div>
+        <div class="guanfangwenti fl">
+<div class="footer-mt">
+            <div id="FooterLNK" class="footer-mt-lnk"><span class="fl">英雄联盟 官方合作媒体</span><i class=" publicspr ico-arrowdown"></i></div>
+            <div id="FooterMT" class="footer-mt-st" style="display: none;">
+                <a target="_blank" href="http://www.loldk.com/" onclick="pgvSendClick({hottag:'main.corp.loldk'});">英雄联盟大咖</a>
+                <a target="_blank" href="http://lol.15w.com/" onclick="pgvSendClick({hottag:'main.corp.15w'});">要我玩</a>
+                <a target="_blank" href="http://www.lolshipin.com/" onclick="pgvSendClick({hottag:'main.corp.lolshipin'});">木木不哭</a>
+                <a target="_blank" href="http://lol.17173.com/" onclick="pgvSendClick({hottag:'main.corp.17173'});">17173</a>
+                <a target="_blank" href="http://lol.yzz.cn/" onclick="pgvSendClick({hottag:'main.corp.yzz'});">叶子猪</a>
+                <a target="_blank" href="http://lol.tuwan.com/" onclick="pgvSendClick({hottag:'main.corp.tuwan'});">兔玩</a>
+                <a target="_blank" href="http://lol.te5.com/" onclick="pgvSendClick({hottag:'main.corp.te5'});">特玩</a>
+                <a target="_blank" href="http://lol.52pk.com/" onclick="pgvSendClick({hottag:'main.corp.52pk'});">52PK游戏网</a>
+                <a target="_blank" href="http://lol.replays.net/" onclick="pgvSendClick({hottag:'main.corp.replays'});">锐派</a>
+                <a target="_blank" href="http://www.wanplus.com/lol/" onclick="pgvSendClick({hottag:'main.corp.wanplus'});">玩加赛事</a>
+                <a target="_blank" href="http://lol.tgbus.com/" onclick="pgvSendClick({hottag:'main.corp.tgbus'});">电玩巴士</a>
+                <a target="_blank" href="http://lol.aipai.com/" onclick="pgvSendClick({hottag:'main.corp.aipai'});">爱拍游戏</a>
+                <a target="_blank" href="http://lol.uuu9.com/" onclick="pgvSendClick({hottag:'main.corp.u9'});">U9</a>
+                <a target="_blank" href="http://www.pentaq.com/" onclick="pgvSendClick({hottag:'main.corp.pentaq'});">pentaQ</a>
+                <a target="_blank" href="http://l.zhangyoubao.com/" onclick="pgvSendClick({hottag:'main.corp.zhangyoubao'});">掌游宝</a>
+                <a target="_blank" href="http://www.175kh.com/" onclick="pgvSendClick({hottag:'main.corp.175kh'});">七煌</a>
+                <a target="_blank" href="http://wangyou.pcgames.com.cn/zhuanti/lol/" onclick="pgvSendClick({hottag:'main.corp.pconline'});">太平洋</a>
+                <a target="_blank" href="http://lol.178.com/" onclick="pgvSendClick({hottag:'main.corp.178'});">178游戏网</a>
+                <a target="_blank" href="http://www.mycea.net/" onclick="pgvSendClick({hottag:'main.corp.mycea'});">电子竞技杂志</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="footer-mainbody2 comWidth">
+        <div class="footer-pic fl">
+            <img src="images/footer-logo.png" alt="" width="264" height="61">
+        </div>
+        <div class="footer-right fl">
+            <p>腾讯互动娱乐 |  服务条款  |  广告服务  |  腾讯游戏招聘  |  腾讯游戏客服  |  游戏活动  |  游戏地图  |  商务合作  |  腾讯网  |  网站导航</p>
+            <p>COPYRIGHI       1998 - 2016 TENCENT.ALL RIGHTS RESRVED.                                                                    腾讯公司版权所有</p>
+            <p>2012 Riot Games,Inc.ALL RIGHTS RESERVED.</p>
+            <p>文网进字[2011】004号& ISBN 978-7-89989-145-2    新出网证（粤）字010号  粤网文[2014]0633-233号</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
