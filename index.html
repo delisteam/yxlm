@@ -10,9 +10,8 @@
     <script src="js/heroskin.js"></script>
 </head>
 <body>
-<!--包裹层-->
-<div id="wrap">
-</div>
+
+<div id="wrap"></div>
 <div id="login-box" class="clearfix">
     <div id="all-close">登录信息<span id="all-close2">×</span></div>
     <div class="logincp" id="logincp">
@@ -36,27 +35,6 @@
     </div>
     </div>
 </div>
-<script>
-    var box=document.getElementById("login-box");
-    var drop=document.getElementById("all-close");
-    startDrop(drop,box);
-    function startDrop(current,move){
-        current.onmousedown=function(event){
-            var event=event||window.event;
-            var x=event.clientX-move.offsetLeft -300;
-            var y=event.clientY-move.offsetTop -200;
-            document.onmousemove=function(event){
-                var event=event||window.event;
-                move.style.left=event.clientX-x+"px";
-                move.style.top=event.clientY-y+"px"
-            }
-        }
-
-        document.onmouseup=function(){   //鼠标弹起以后鼠标继续移动就不应该操作
-            document.onmousemove=null;
-        }
-    }
-</script>
 <!--页面头部-->
 <div class="header">
     <!--导航栏-->

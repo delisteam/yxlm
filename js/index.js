@@ -1,6 +1,10 @@
 /**
  * Created by Administrator on 2017/1/5 0005.
  */
+window.onload=function() {
+    lunbo();
+    logonBox();
+}
 function getClass(classname,id) {
     if (document.getElementsByClassName)
     {
@@ -33,7 +37,28 @@ function getClass(classname,id) {
         return arr;
     }
 }
-window.onload=function() {
+var logonBox=function(){
+    var box=document.getElementById("login-box");
+    var drop=document.getElementById("all-close");
+    startDrop(drop,box);
+    function startDrop(current,move){
+        current.onmousedown=function(event){
+            var event=event||window.event;
+            var x=event.clientX-move.offsetLeft -300;
+            var y=event.clientY-move.offsetTop -200;
+            document.onmousemove=function(event){
+                var event=event||window.event;
+                move.style.left=event.clientX-x+"px";
+                move.style.top=event.clientY-y+"px"
+            }
+        }
+
+        document.onmouseup=function(){   //鼠标弹起以后鼠标继续移动就不应该操作
+            document.onmousemove=null;
+        }
+    }
+}
+var lunbo=function(){
     var zzfw3=document.getElementById("zzfw1");
     var cjwt=document.getElementById("cjwtlb");
     var box1=document.getElementById("boxanswer").getElementsByTagName("div")
